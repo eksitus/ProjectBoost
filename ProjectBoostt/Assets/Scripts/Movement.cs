@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
     Rigidbody rigidBody;
 
     [SerializeField]float thrust = 1000f;
+    [SerializeField] float rotationSpeed = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -28,7 +29,7 @@ public class Movement : MonoBehaviour
     {   
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidBody.AddRelativeForce(0,thrust*Time.deltaTime,0);
+            rigidBody.AddRelativeForce(Vector3.up * Time.deltaTime * thrust);
         }
         
     }
@@ -36,14 +37,28 @@ public class Movement : MonoBehaviour
 
 
     void ProcessRotation()
-    {
+    {   
         if (Input.GetKey(KeyCode.A))
         {
-            transform.Translate(-0.01f, 0, 0);
+            ApplyRotation(rotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            transform.Translate(0.01f, 0, 0);
+            ApplyRotation(-1 * rotationSpeed);
         }
     }
+
+    void ApplyRotation(float rotation)
+    {
+        rigidBody.freezeRotation = true;
+
+        transform.Rotate(Vector3.forward * rotation * Time.deltaTime);
+
+        rigidBody.freezeRotation = false;
+    }
+
+
+
+
+
 }

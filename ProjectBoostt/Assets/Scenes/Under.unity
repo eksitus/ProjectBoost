@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 3367274892318233147, guid: 65dbad7ee23ed42d0ab6db7ce740edf9, type: 3}
+      propertyPath: m_TagString
+      value: Finish
+      objectReference: {fileID: 0}
     - target: {fileID: 7014542007209905166, guid: 65dbad7ee23ed42d0ab6db7ce740edf9, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -407,6 +411,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3969411902578195623, guid: 1e628d79f9be647e2941ccb6c383287b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 59cb4edcdddb1459f80a3191cee20d7a, type: 2}
     - target: {fileID: 4752534681472414325, guid: 1e628d79f9be647e2941ccb6c383287b, type: 3}
       propertyPath: m_Name
       value: Obstacle
@@ -425,7 +433,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8504772530324361708, guid: 1e628d79f9be647e2941ccb6c383287b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.33
+      value: 9.72
       objectReference: {fileID: 0}
     - target: {fileID: 8504772530324361708, guid: 1e628d79f9be647e2941ccb6c383287b, type: 3}
       propertyPath: m_LocalPosition.z
@@ -638,6 +646,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8062453657416567340, guid: 65dbad7ee23ed42d0ab6db7ce740edf9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b9324e3b247884ad49759ed70f147de7, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65dbad7ee23ed42d0ab6db7ce740edf9, type: 3}
 --- !u!4 &8610844226746951067 stripped

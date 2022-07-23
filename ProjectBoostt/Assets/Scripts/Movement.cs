@@ -5,16 +5,24 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
 
-    Rigidbody rigidBody;
-    AudioSource audioSource;
+    
     [SerializeField]float thrust = 1000f;
     [SerializeField] float rotationSpeed = 100f;
+    [SerializeField] AudioClip mainEngine;
+    [SerializeField] ParticleSystem leftParticle;
+    [SerializeField] ParticleSystem rightParticle;
+    [SerializeField] ParticleSystem boosterParticle;
+
+    Rigidbody rigidBody;
+    AudioSource audioSource;
+
 
     // Start is called before the first frame update
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
         audioSource = GetComponent<AudioSource>();
+        
         
     }
 
@@ -26,39 +34,60 @@ public class Movement : MonoBehaviour
     }
 
 
-
+    // Thrust
     void ProcessThrust()
     {   
         if (Input.GetKey(KeyCode.Space))
         {
-            rigidBody.AddRelativeForce(Vector3.up * Time.deltaTime * thrust);
-            if (!audioSource.isPlaying)
-            {
-                audioSource.Play();
-            }
-            
-            //audioSource.loop = true;
-
+            StartThrust();
         }
         else
         {
-            audioSource.Stop();
+            StopThrust();
+
         }
-        
+
+    }
+    private void StartThrust()
+    {
+        rigidBody.AddRelativeForce(Vector3.up * Time.deltaTime * thrust);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(mainEngine);
+        }
+        if (!boosterParticle.isPlaying)
+        {
+            boosterParticle.Play();
+
+        }
+    }
+    private void StopThrust()
+    {
+        audioSource.Stop();
+        boosterParticle.Stop();
     }
 
+    
 
+    //Rotation
 
     void ProcessRotation()
     {   
         if (Input.GetKey(KeyCode.A))
         {
-            ApplyRotation(rotationSpeed);
+            RotateLeft();
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            ApplyRotation(-1 * rotationSpeed);
+            RotateRight();
         }
+        else
+        {
+            StopRotation();
+        }
+        
+        
     }
 
     void ApplyRotation(float rotation)
@@ -69,6 +98,36 @@ public class Movement : MonoBehaviour
 
         rigidBody.freezeRotation = false;
     }
+
+    private void RotateLeft()
+    {
+        ApplyRotation(rotationSpeed);
+
+        if (!rightParticle.isPlaying)
+        {
+
+            rightParticle.Play();
+        }
+    }
+    private void RotateRight()
+    {
+        ApplyRotation(-1 * rotationSpeed);
+        if (!leftParticle.isPlaying)
+        {
+
+            leftParticle.Play();
+        }
+    }
+
+    
+
+    private void StopRotation()
+    {
+        rightParticle.Stop();
+        leftParticle.Stop();
+    }
+
+    
 
 
 

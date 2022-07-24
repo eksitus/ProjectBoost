@@ -6,7 +6,9 @@ To download: ProjectBoostt->Builds and choose configuration for your system and 
 How To Play:
 
 Boost - Press and Hold Space
+
 Rotation - A and D
+
 Quit - Esc
 
 Purpose: Reach the green landing pad

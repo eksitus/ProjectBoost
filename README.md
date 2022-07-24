@@ -1,6 +1,6 @@
 # ProjectBoost
 
-To download: ProjectBoostt->Builds and choose configuration for your system. And also use https://drive.google.com/drive/folders/1M22d1gxENVUK_8LqSPFzzd4AfB8v6-Ms?usp=sharing this link to download.
+To download: ProjectBoostt->Builds and choose configuration for your system and also use https://drive.google.com/drive/folders/1M22d1gxENVUK_8LqSPFzzd4AfB8v6-Ms?usp=sharing
 
 
 How To Play:

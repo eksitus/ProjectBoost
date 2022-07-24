@@ -24,7 +24,7 @@ public class CollisionHandler : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         boxCollider = GetComponent<BoxCollider>();
-        
+
     }
 
     void Update()
@@ -69,12 +69,21 @@ public class CollisionHandler : MonoBehaviour
             case "Obstacle":
                 StartCrashSequence();
                 break;
-
+            case "Portal Enter":
+                Portal();
+                break;
             default:
                 break;
         }
     }
 
+    void Portal()
+    {
+        GetComponent<Transform>().position = GameObject.FindWithTag("Portal Exit").GetComponent<Transform>().position + Vector3.down;
+       
+    }
+
+        
     
 
     void StartCrashSequence()
